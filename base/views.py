@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib.auth import authenticate, login, logout
-from .models import Room, Topic, Message, User
+from .models import Room, Topic, Message, User, Submission
 from .forms import RoomForm, UserForm, MyUserCreationForm
 from django.http import HttpResponse
 
@@ -103,8 +103,8 @@ def room(request, pk):
     return render(request, 'base/room.html', context)
 
 
-def userProfile(request, pk):
-    user = User.objects.get(id=pk)
+def userProfile(request, username):
+    user = User.objects.get(username=username)
     rooms = user.room_set.all()
     room_messages = user.message_set.all()
     topics = Topic.objects.all()
@@ -190,7 +190,7 @@ def updateUser(request):
         form = UserForm(request.POST, request.FILES, instance=user)
         if form.is_valid(): 
             form.save()
-            return redirect('user-profile', pk=user.id)
+            return redirect('user-profile', username=user.username)
 
     return render(request, 'base/update-user.html', {'form' : form})
 
@@ -202,3 +202,10 @@ def topicsPage(request):
 def activityPage(request):
     room_messages = Message.objects.all()
     return render(request, 'base/activity.html', {'room_messages' : room_messages})
+
+def user_submissions(request, username):
+    submissions = Submission.objects.filter(submitted_by_id=username)
+    context = {
+        'submissions': submissions
+    }
+    return render(request, 'submissions.html', context)

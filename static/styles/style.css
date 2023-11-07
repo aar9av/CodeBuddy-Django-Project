@@ -1,18 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
 :root {
-  --color-main: #71c6dd;
-  --color-main-light: #e1f6fb;
-  --color-dark: #3f4156;
-  --color-dark-medium: #51546e;
-  --color-dark-light: #696d97;
-  --color-light: #e5e5e5;
-  --color-gray: #8b8b8b;
-  --color-light-gray: #b2bdbd;
-  --color-bg: #2d2d39;
-  --color-success: #5dd693;
-  --color-error: #fc4b0b;
+  --color-main: #969797;
+  --color-main-light: #FFC1D2;
+  --color-dark: #1A2634;
+  --color-dark-medium: #34495E;
+  --color-dark-light: #5D6D7E;
+  --color-light: #F0F3F4;
+  --color-gray: #839192;
+  --color-light-gray: #B2BABB;
+  --color-bg: #17202A;
+  --color-success: #58D68D;
+  --color-error: #C0392B;
 }
+
+
 
 /*========== base styles ==========*/
 
@@ -350,7 +352,7 @@ a {
   align-items: center;
   font-weight: 500;
   text-decoration: none;
-  color: var(--color-gray);
+  color: var(--color-light);
 }
 
 .header__menu img {
@@ -614,6 +616,28 @@ a {
     margin-bottom: 2.4rem;
   }
 }
+/*==============================
+=>  Platform List
+================================*/
+.platform__card {
+  background-color: var(--color-dark);
+  border-radius: 1rem;
+  padding: 2rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--color-light);
+  transition: all 0.3s ease-in-out;
+  width: 15rem;
+}
+
+.platform__card > p {
+  font-size: small;
+  color: var(--color-gray);
+}
+
+.platform__card > a {
+  target: _blank;
+}
 
 /*==============================
 =>  Room List
@@ -862,6 +886,14 @@ a {
 
 .profile__info {
   text-align: center;
+}
+
+.profile__links {
+  display: flex;
+  text-align: center;
+  margin-top: 2rem;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .profile__info h3 {
@@ -1162,4 +1194,39 @@ a {
   font-weight: 500;
   color: var(--color-main);
   font-weight: 1.4rem;
+}
+
+/* styling tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-dark-medium);
+}
+
+td > a > h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-light);
+}
+
+th:last-child,
+td:last-child {
+  padding-right: 20px;
+  text-align: right; /* Right-align the text */
+}
+
+tr:nth-child(odd) {
+  background-color: var(--color-dark-medium);
+}
+
+tr {
+  color: var(--color-light);
+  border-radius: 5px;
+  overflow: hidden;
 }

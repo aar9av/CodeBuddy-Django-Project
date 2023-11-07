@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3sru4u5j0(0pa&52orz0#$y9^9on*#lk=s(ug1azhb6-#4q-^5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['16.16.65.65', 'studybuddy.coderslive.tech']
+ALLOWED_HOSTS = ['localhost','16.16.65.65', '13.53.38.182', 'coderslive.tech']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
+    'tailwind',
 ]
 
 AUTH_USER_MODEL = 'base.User'
@@ -95,6 +96,16 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': env('DB_NAME'),
+#         'USER': env('DB_USER'),
+#         'PASSWORD': env("DB_PASS"),
+#         'HOST': env("DB_HOST"),
+#         'PORT': '3306',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

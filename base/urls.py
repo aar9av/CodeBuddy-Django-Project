@@ -12,7 +12,7 @@ urlpatterns = [
 
     path('', views.home, name='home'), 
     path('room/<str:pk>', views.room, name='room'), # in place of <str:pk> it could be <int:pk> or <slug:pk>, pk stands for primary key
-    path('profile/<str:pk>/', views.userProfile, name='user-profile'),
+    path('profile/<str:username>/', views.userProfile, name='user-profile'),
 
     path('create-room/', views.createRoom, name="create-room"),
     path('update-room/<str:pk>', views.updateRoom, name="update-room"),
