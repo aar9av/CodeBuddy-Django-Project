@@ -1,3 +1,6 @@
+import environ
+env = environ.Env()
+environ.Env.read_env()
 """
 Django settings for studybud project.
 
@@ -20,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3sru4u5j0(0pa&52orz0#$y9^9on*#lk=s(ug1azhb6-#4q-^5'
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -96,16 +99,18 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': env('DB_NAME'),
-#         'USER': env('DB_USER'),
-#         'PASSWORD': env("DB_PASS"),
-#         'HOST': env("DB_HOST"),
-#         'PORT': '3306',
-#     }
-# }
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env("DB_PASS"),
+        'HOST': env("DB_HOST"),
+        'PORT': '3306',
+    }
+}
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
