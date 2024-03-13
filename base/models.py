@@ -92,9 +92,9 @@ class User(AbstractBaseUser):
         return self.is_admin
 
 class Problem(models.Model):
-    title = models.CharField(max_length=255, primary_key=True)
+    url = models.URLField(primary_key=True)
+    title = models.CharField(max_length=255)
     platform = models.CharField(max_length=10, choices=[('Codechef', 'Codechef'), ('Leetcode', 'Leetcode'), ('Codeforces', 'Codeforces')])
-    url = models.URLField()
     created_at = models.DateTimeField(default=timezone.now)
     last_edited_at = models.DateTimeField(auto_now=True)
 

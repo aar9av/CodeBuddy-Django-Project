@@ -46,6 +46,15 @@ def get_problems_solved(driver, username):
                     # replace the pattern with submission/submission_id
                     submission_link = re.sub(pattern, f"/submission/{submission_id}", problem_link)
                     # store the following items in dictionary problem_code.strip(), problem_link, submission_link, submission_id, 'Codeforces', username
-                    solved_problems.append({'problem_code': problem_code.strip(), 'problem_link': problem_link, 'submission_link': submission_link, 'submission_id': submission_id, 'platform': 'Codeforces', 'username': username})
+                    solved_problems.append(
+                        {
+                            'problem_code': problem_code.strip(), 
+                            'problem_link': problem_link, 
+                            'submission_link': submission_link, 
+                            'submission_id': submission_id, 
+                            'platform': 'Codeforces', 
+                            'username': username
+                        }
+                    )
 
     return solved_problems
