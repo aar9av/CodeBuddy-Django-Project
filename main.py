@@ -2,8 +2,6 @@ import environ
 env = environ.Env()
 env.read_env()
 
-# test comment
-
 import mysql.connector
 
 def test_mysql_connection():
